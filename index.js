@@ -20,7 +20,7 @@ const Task = mongoose.model(
 
 // Health check
 app.get("/api/health", (req, res) => {
-  res.json({ message: "API is running with CI/CD pipeline integration" });
+  res.json({ message: "API is running" });
 });
 
 // Get all tasks
@@ -79,6 +79,6 @@ mongoose.connect(process.env.MONGO_URI)
     });
   })
   .catch((error) => {
-    console.error("MongoDB connection failed:", error.message);
-    process.exit(1);
-  });
+  console.error("MongoDB connection failed:", error);
+  process.exit(1);
+});
